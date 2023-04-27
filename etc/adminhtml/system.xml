@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="acme" translate="label" sortOrder="100" class="acme-logo">
+            <label><![CDATA[]]></label>
+        </tab>
+        <section id="newsletterpopup" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Newsletter</label>
+            <tab>fahim</tab>
+            <resource>Acme_Newsletterpopup::newsletterpopupconfig</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Newsletter </label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="delaytime" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Delay</label>
+                    <comment>Add Time in Second.</comment>
+                    <validate>required-entry</validate>
+                    <depends><field id="enable">1</field></depends>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Title</label>
+                    <validate>required-entry</validate>
+                    <depends><field id="enable">1</field></depends>
+                </field>
+                <field id="text" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Text</label>
+                    <validate>required-entry</validate>
+                    <depends><field id="enable">1</field></depends>
+                </field>
+                <field id="image_field" translate="label" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Image Field</label>
+                    <comment>Click to add image.</comment>
+                    <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">myfolder</base_url>
+                </field>
+
+            </group>
+            <group id="cms" translate="label" type="text" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Enable Extension On CMS Pages</label>
+                <field id="enable_cms" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Set YES to Show Newsletter Popup On CMS Pages</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <!-- <field id="title_cms" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title of "CMS List"</label>
+                </field> -->
+                <field id="do_something" translate="label" type="multiselect" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Pages to Display </label>
+                      <source_model>Acme\Newsletterpopup\Model\Config\Source\Checkbox</source_model>     
+                    <comment>Hold Ctrl when choosing multiple options</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
