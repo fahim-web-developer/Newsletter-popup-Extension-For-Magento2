@@ -17,4 +17,3 @@ Open CLI in the Magento directory and Run Magento installation commands.
 
 ➔ php bin/magento cache: flush
 
-![124034](https://user-images.githubusercontent.com/124246245/235196935-8ef25b7a-25dc-422f-8ec0-64e1a4249bf9.png)
